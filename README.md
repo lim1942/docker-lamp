@@ -188,10 +188,9 @@ ldi 3000 3306
 git clone https://github.com/mattrayner/docker-lamp.git
 cd docker-lamp
 
-# Build the 18.04, 16.04 image and the 14.04 images
-docker build -t=mattrayner/lamp:latest -f ./1804/Dockerfile-php7 .
-docker build -t=mattrayner/lamp:latest-1604 -f ./1604/Dockerfile-php7 .
-docker build -t=mattrayner/lamp:latest-1404 -f ./1404/Dockerfile-php7 .
+# Build the 18.04 and 16.04 image
+docker build -t=mattrayner/lamp:latest -f ./1804/Dockerfile .
+docker build -t=mattrayner/lamp:latest-1604 -f ./1604/Dockerfile .
 
 # Run the 14.04 image as a container
 docker run -p "3000:80" mattrayner/lamp:latest-1404 -d
